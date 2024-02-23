@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Meteor } from "meteor/meteor";
 
 
-const TaskForm = ({ user }) => {
+const TaskForm = () => {
   const [text, setText] = useState("");
 
   const handleSubmit = (e) => {
@@ -14,7 +14,7 @@ const TaskForm = ({ user }) => {
   return (
     <form className="task-form" onSubmit={(e) => handleSubmit(e)}>
       <input
-        placeholder="enter your task"
+        placeholder="Enter your task"
         value={text}
         onChange={(e) => setText(e.target.value)}
       />

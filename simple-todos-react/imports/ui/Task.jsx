@@ -17,6 +17,7 @@ const Task = ({ task, onCheckboxClick, deleteTask }) => {
         checked={task.isChecked}
         onClick={() => onCheckboxClick(task._id, task.isChecked)}
         readOnly
+        style={{ cursor: "pointer" }}
       />
       {editMode ? (
         <input

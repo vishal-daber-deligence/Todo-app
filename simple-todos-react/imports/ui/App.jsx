@@ -49,14 +49,9 @@ export const App = () => {
       <header>
         <div className="app-bar">
           <div className="app-header">
-            <h1>📝️ To Do List {pendingTasksCount}</h1>
+            <h1>📝️ To Do List ({pendingTasksCount})</h1>
           </div>
-        </div>
-      </header>
-      <div className="main">
-        {user ? (
-          <>
-            <TaskForm />
+          {user && (
             <button
               role="button"
               className="user"
@@ -65,6 +60,13 @@ export const App = () => {
             >
               {user.username} 🚪
             </button>
+          )}
+        </div>
+      </header>
+      <div className="main">
+        {user ? (
+          <>
+            <TaskForm />
             <FilterButton filter={filter} setFilter={setFilter} />
             {isLoading && <div className="loading">loading...</div>}
             <ul className="tasks">

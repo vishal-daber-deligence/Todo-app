@@ -7,8 +7,10 @@ export const LoginForm = () => {
 
   const submit = (e) => {
     e.preventDefault();
-
-    Meteor.loginWithPassword(username, password);
+    Meteor.call("users.login", { username, password }, (error) => {
+      if (error) console.log(error);
+      else Meteor.loginWithPassword(username, password);
+    });
   };
 
   return (
